@@ -12,7 +12,10 @@ public class BatchExeJDBC {
    static final String USER = "root";
    static final String PASS = "1234";
    static final String sql = "insert into studentInfo (id, name, age, grade) values (?, ?, ?, ?)";
-   static final int len = 3450;
+   static final int len = 100000;
+   static final int batchSize = 1000;
+   static long startTime = 0;
+   static long endTime= 0;
 	public static void main(String[] args) {
 		   Connection conn = null;
 		   PreparedStatement ps = null;
@@ -27,7 +30,7 @@ public class BatchExeJDBC {
 		      //STEP 4: Execute a query
 		      System.out.println("Creating preparedStatement...");
 		      ps = conn.prepareStatement(sql);
-		      final int batchSize = 1000;
+		      
 		      int count = 0;
 		      StudentInfo[] students = getStudent();
 		      
@@ -39,6 +42,7 @@ public class BatchExeJDBC {
 		          ps.addBatch();
 		          if(count == 0){
 		        	  System.out.println("begin insert");
+		        	  startTime=System.currentTimeMillis();  
 		          }
 		          if(++count % batchSize == 0) {
 		              ps.executeBatch();
@@ -48,6 +52,8 @@ public class BatchExeJDBC {
 		      ps.executeBatch(); // insert remaining records
 		      System.out.println("insert " + count + " records");
 		      System.out.println("BatchInsertOK");
+		      endTime=System.currentTimeMillis();
+		      System.out.println("插入时间间隔为：" + (endTime - startTime) + "ms");
 		      //STEP 6: Clean-up environment
 		      ps.close();
 		      conn.close();
