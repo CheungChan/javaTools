@@ -1,0 +1,2 @@
+javac NoScreenLock.java
+java NoScreenLock
