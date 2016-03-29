@@ -5,7 +5,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class NoScreenLock {
+public class NoLockScreen {
 	public static void main(String[] args) {
 	new Timer().schedule(new myTimerTask(),1000,1000*60*4);
 
