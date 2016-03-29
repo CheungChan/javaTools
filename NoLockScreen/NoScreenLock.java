@@ -22,7 +22,7 @@ class myTimerTask extends TimerTask{
 			r.keyRelease(KeyEvent.VK_CAPS_LOCK);
 			r.keyPress(KeyEvent.VK_CAPS_LOCK);
 			r.keyRelease(KeyEvent.VK_CAPS_LOCK);
-			System.out.println("4 mins a time,called " + (++l) + " times");
+			System.out.println("4 mins once,called " + (++l) + " times");
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
