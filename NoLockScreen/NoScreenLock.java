@@ -18,12 +18,6 @@ class myTimerTask extends TimerTask{
 	public void run() {
 		try {
 			Robot r = new Robot();
-			if(l==0){
-				r.keyPress(KeyEvent.VK_WINDOWS);
-				r.keyPress(KeyEvent.VK_D);
-				r.keyRelease(KeyEvent.VK_D);
-				r.keyRelease(KeyEvent.VK_WINDOWS);
-			}
 			r.keyPress(KeyEvent.VK_CAPS_LOCK);
 			r.keyRelease(KeyEvent.VK_CAPS_LOCK);
 			r.keyPress(KeyEvent.VK_CAPS_LOCK);
