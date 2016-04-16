@@ -22,7 +22,7 @@ class myTimerTask extends TimerTask{
 			r.keyRelease(KeyEvent.VK_CAPS_LOCK);
 			r.keyPress(KeyEvent.VK_CAPS_LOCK);
 			r.keyRelease(KeyEvent.VK_CAPS_LOCK);
-			System.out.println("4 mins once\tcalled " + (++l) + " times\ttotally " + (l*4/60) + "h " + (l*4) + "m");
+			System.out.println("The program executes 4 mins once.\tIt has called " + (++l) + " times.\tTime is totally " + ((l-1)*4/60) + "h " + ((l-1)*4%60) + "m");
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
