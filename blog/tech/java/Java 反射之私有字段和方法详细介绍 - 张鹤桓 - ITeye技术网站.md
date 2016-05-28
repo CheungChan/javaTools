@@ -7,7 +7,7 @@
 访问私有字段: 
 为了访问私有字段，你需要调用Class.getDeclaredField(String name)或者Class.getDeclaredFields()方法。方法Class.getField(String name)和Class.getFields()仅仅返回共有的字段，所以它们都无法起到作用。这里有一个例子，该例子中有一个包含私有字段的类，在该类下面有通过反射访问私有字段的代码。 
 复制代码 代码如下:
-```
+```java
 public class PrivateObject { 
 private String privateString = null; //声明为私有字段 
 public PrivateObject(String privateString) { 
@@ -16,7 +16,7 @@ this.privateString = privateString;
 } 
 ```
 复制代码 代码如下:
-```
+```java
 PrivateObject privateObject = new PrivateObject("The Private Value");//实例化对象 
 Field privateStringField = PrivateObject.class. 
 getDeclaredField("privateString"); 
@@ -30,7 +30,7 @@ System.out.println("fieldValue = " + fieldValue);
 访问私有方法 
 为了访问一个私有方法，你需要调用Class.getDeclaredMethod(String name,Class[] parameterTypes)或者Class.getDeclaredMethods()方法。方法Class.getMethod(String name,Class[] parameterTypes)和Class.getMethods()仅仅返回公有方法，所以它们不会起到作用。下面是一个简单的例子，该例子中有一个拥有私有方法的类，类下面是通过反射机制访问私有方法的代码。 
 复制代码 代码如下:
-```
+```java
 public class PrivateObject { 
 private String privateString = null; 
 public PrivateObject(String privateString) { 
@@ -42,7 +42,7 @@ return this.privateString;
 } 
 ```
 复制代码 代码如下:
-```
+```java
 PrivateObject privateObject = new PrivateObject("The Private Value"); 
 Method privateStringMethod = PrivateObject.class. 
 getDeclaredMethod("getPrivateString", null); 
