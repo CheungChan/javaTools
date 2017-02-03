@@ -6,9 +6,9 @@ import java.util.*;
 public class SplitAndMergeDemo{
 
     private static int SPLIT_SIZE = 1024 * 1024 * 100;
-    private static String originFileName = "Rct494 Free Asian Porn Video - Mobile.mp4";
-    private static String newFileName = "newFile.mp4";
-    private static String partName = ".mp4";
+    private static String originFileName = "r1.7z";
+    private static String newFileName = "newFile.7z";
+    private static String partName = ".7z";
     private static String DIST = "dist";
     private static int key = 0x99;
     public static void main(String[] args) throws IOException{
@@ -43,10 +43,12 @@ public class SplitAndMergeDemo{
     public static void merge() throws IOException{
         System.out.println("开始合并文件");
         ArrayList<FileInputStream> list = new ArrayList<FileInputStream>();
-        File[] files = new File(DIST).listFiles();
-        for(File f: files){
+        int count = 1;
+        File f = null;
+        while((f=new File(DIST, count + partName)).exists()){
             list.add(new FileInputStream(f));
             System.out.println("讲文件 " + f.getName() + "  放入合并流中");
+            count++;
         }
         System.out.println("正在合并文件");
         Iterator<FileInputStream> it = list.iterator();
